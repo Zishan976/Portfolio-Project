@@ -10,7 +10,18 @@
   <body>
     <header class="header" role="banner">
       <div class="faka fame"></div>
+      <button
+        class="hamburger"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
       <nav
+        id="primary-navigation"
         class="content fame"
         role="navigation"
         aria-label="Primary Navigation"
@@ -120,5 +131,17 @@
         >Whatsapp</a
       >
     </footer>
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const nav = document.getElementById("primary-navigation");
+
+      hamburger.addEventListener("click", () => {
+        const expanded =
+          hamburger.getAttribute("aria-expanded") === "true" || false;
+        hamburger.setAttribute("aria-expanded", !expanded);
+        hamburger.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>

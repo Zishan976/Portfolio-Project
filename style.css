@@ -16,6 +16,13 @@ header.header {
   align-items: center;
   justify-content: space-between;
   border-radius: 0 0 15px 15px;
+  position: relative;
+  z-index: 1100;
+}
+
+.hamburger {
+  z-index: 1200;
+  display: none;
 }
 
 .faka {
@@ -249,12 +256,30 @@ footer.footer a:hover {
 
   nav.content {
     width: 100%;
+    display: none;
+    flex-direction: column;
+    background-color: rgba(69, 53, 193, 0.95);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    border-radius: 0 0 0 15px;
+    box-shadow: 0 4px 15px rgba(69, 53, 193, 0.6);
+    padding: 1rem 0;
+  }
+
+  nav.content.active {
+    display: flex;
   }
 
   nav.content a {
     letter-spacing: -0.9px;
-    padding: 0rem;
-    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #8a7ffb;
+  }
+
+  nav.content a:last-child {
+    border-bottom: none;
   }
 
   .pera {
@@ -301,5 +326,45 @@ footer.footer a:hover {
 
   img {
     width: 16rem;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 1001;
+  }
+
+  .hamburger:focus {
+    outline: none;
+  }
+
+  .hamburger-bar {
+    width: 30px;
+    height: 3px;
+    background-color: #e0e0ff;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+
+  .hamburger.active .hamburger-bar:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .hamburger.active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-bar:nth-child(3) {
+    transform: rotate(-45deg);
   }
 }
